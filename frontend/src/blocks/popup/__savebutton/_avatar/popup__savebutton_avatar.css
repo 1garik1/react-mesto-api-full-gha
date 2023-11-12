@@ -1,0 +1,17 @@
+.popup__savebutton_avatar {
+    background-color: #000;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    min-height: 50px;
+    min-width: 358px;
+    padding: 0;
+    transition: .5s;
+}

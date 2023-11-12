@@ -1,0 +1,23 @@
+.profile__info {
+	color: #fff;
+	display: grid;
+	grid-template-columns: fit-content(75%) min-content;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	flex-grow: 1;
+	column-gap: 18px;
+	row-gap: 8px;
+	position: relative;
+	flex-basis: 50%;
+}
+
+@media screen and (max-width: 767px) {
+	.profile__info {
+		align-self: center;
+		grid-template-columns: 1fr min-content;
+		column-gap: 10px;
+		row-gap: 14px;
+		margin-bottom: 30px;
+	}
+}

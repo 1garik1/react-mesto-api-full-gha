@@ -1,0 +1,5 @@
+.popup__input-element {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
