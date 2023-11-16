@@ -19,25 +19,22 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: true }));
+app.use(cors({ credentials: true, origin: true }));
 app.use(requestLogger);
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.post('/signin', validationLogin, login);
 app.post('/signup', validationCreateUser, createUser);
+app.post('/signin', validationLogin, login);
 
 app.use(auth);
-app.use(routes);
-app.use(errors());
 app.use(handelError);
 
-mongoose.connect('mongodb://127.0.0.1/mestodb', {
-//  useNewUrlParser: true,
-//  useUnifiedTopology: true,
-});
-
-app.use(errorLogger);
-
 app.use(errors());
+app.use(errorLogger);
+app.use(routes);
+
+mongoose.connect('mongodb://127.0.0.1/mestodb', {
+
+});
 
 app.listen(PORT);

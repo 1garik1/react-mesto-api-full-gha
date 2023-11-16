@@ -16,8 +16,8 @@ function EditAvatarPopup(props) {
     ref.current.value = '';
   }, [props.isOpen]);
 
-  return (
-    <PopupWithForm
+  return(
+    <PopupWithForm 
       isOpen={props.isOpen}
       onCloseClick={props.onCloseClick}
       onClose={props.onClose}

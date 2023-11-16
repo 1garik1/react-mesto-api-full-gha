@@ -1,5 +1,4 @@
 const { celebrate, Joi } = require('celebrate');
-
 const isUrl = require('validator/lib/isURL');
 const BadRequest = require('../errors/BadRequest');
 
@@ -13,7 +12,7 @@ const validationUrl = (url) => {
 
 const validationLogin = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().required().email().required(),
+    email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 });
@@ -24,7 +23,7 @@ const validationCreateUser = celebrate({
     about: Joi.string().min(2).max(30),
     avatar: Joi.string().custom(validationUrl),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(8),
+    password: Joi.string().required(),
   }),
 });
 
@@ -43,7 +42,7 @@ const validationUpdateAvatar = celebrate({
 
 const validationUserId = celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().required().hex().length(24),
+    id: Joi.string().required().hex().length(24),
   }),
 });
 
@@ -56,7 +55,7 @@ const validationCreateCard = celebrate({
 
 const validationCardId = celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string().required().hex().length(24),
+    id: Joi.string().required().hex().length(24),
   }),
 });
 

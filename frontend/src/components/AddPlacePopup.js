@@ -16,10 +16,9 @@ function AddPlacePopup(props) {
   function handleSubmit(evt) {
     evt.preventDefault();
     props.onSubmit({
-      name: name,
-      link: link,
+      name,
+      link
     });
-    props.onClose();
   }
 
   React.useEffect(() => {
