@@ -18,9 +18,10 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const app = express();
+app.use(requestLogger);
+
 app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: true }));
-app.use(requestLogger);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/signup', validationCreateUser, createUser);
@@ -28,10 +29,9 @@ app.post('/signin', validationLogin, login);
 
 app.use(auth);
 app.use(handelError);
-
-app.use(errors());
-app.use(errorLogger);
 app.use(routes);
+app.use(errorLogger);
+app.use(errors());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb', {
 
