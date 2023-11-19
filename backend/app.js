@@ -32,7 +32,7 @@ app.use('/api/', handelError);
 app.use('/api/', routes);
 app.use('/api/', errorLogger);
 app.use(errors());
-app.get('/crash-test', () => {
+app.get('api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
