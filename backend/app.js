@@ -32,7 +32,11 @@ app.use('/api/', handelError);
 app.use('/api/', routes);
 app.use('/api/', errorLogger);
 app.use(errors());
-
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 mongoose.connect('mongodb://127.0.0.1/mestodb', {
 
 });
