@@ -103,7 +103,7 @@ class Api {
 
 
 const api = new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://domain.nameofproject.nomoredomainsmonster.ru/api',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',

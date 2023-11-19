@@ -24,13 +24,13 @@ app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.post('/signup', validationCreateUser, createUser);
-app.post('/signin', validationLogin, login);
+app.post('/api/signup', validationCreateUser, createUser);
+app.post('/api/signin', validationLogin, login);
 
-app.use(auth);
-app.use(handelError);
-app.use(routes);
-app.use(errorLogger);
+app.use('/api/', auth);
+app.use('/api/', handelError);
+app.use('/api/', routes);
+app.use('/api/', errorLogger);
 app.use(errors());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb', {
