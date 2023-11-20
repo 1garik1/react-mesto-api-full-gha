@@ -24,13 +24,14 @@ app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.post('/api/signup', validationCreateUser, createUser);
-app.post('/api/signin', validationLogin, login);
-app.get('api/crash-test', () => {
+app.get('/api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+app.post('/api/signup', validationCreateUser, createUser);
+app.post('/api/signin', validationLogin, login);
+
 app.use('/api/', auth);
 app.use('/api/', handelError);
 app.use('/api/', routes);
