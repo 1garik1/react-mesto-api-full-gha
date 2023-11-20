@@ -26,17 +26,17 @@ app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/api/signup', validationCreateUser, createUser);
 app.post('/api/signin', validationLogin, login);
-
-app.use('/api/', auth);
-app.use('/api/', handelError);
-app.use('/api/', routes);
-app.use('/api/', errorLogger);
-app.use(errors());
 app.get('api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+app.use('/api/', auth);
+app.use('/api/', handelError);
+app.use('/api/', routes);
+app.use('/api/', errorLogger);
+app.use(errors());
+
 mongoose.connect('mongodb://127.0.0.1/mestodb', {
 
 });
